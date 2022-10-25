@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
-
+import HomeClass from './components/HomeClass';
+import Home from './components/Home';
+import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import Login from './components/Auth/Login';
+import Signup from './components/Auth/Signup';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Switch>
+        <Route
+          path="/"
+          exact
+          render={(props) => <Login {...props} />}
+        />
+        <Route
+          path="/register"
+          exact
+          render={(props) => <Signup {...props} />}
+        />
+        <Route
+          path="/class"
+          exact
+          render={(props) => <HomeClass {...props} />}
+        />
+        <Route path="/stream" exact render={(props) => <Home {...props} />} />
+        <Route
+          path="/AddTask"
+          exact
+          render={(props) => <Home {...props} />}
+        />
+        <Route
+          path="/FAQ"
+          exact
+          render={(props) => <Home {...props} />}
+        />
+        <Route
+          path="/members"
+          exact
+          render={(props) => <Home {...props} />}
+        />
+        <Route
+          path="/TaskList"
+          exact
+          render={(props) => <Home {...props} />}
+        />
+      </Switch>
     </div>
-  );
+  )
 }
 
 export default App;
